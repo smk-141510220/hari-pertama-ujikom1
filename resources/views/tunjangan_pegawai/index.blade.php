@@ -12,11 +12,13 @@
 	<thead>
 		<tr class="bg-info">
 		<th>No</th>
+		<th><center>Kode Tunjangan</center></th>
 		<th><center>Nip</center></th>
 		<th><center>Nama pegawai</center></th>
-		<th colspan="2">Jabatan dan Golongan</th>
+		<th><center>Jabatan</center></th>
+		<th><center>Golongan</center></th>
 		<th><center>Status</center></th>
-		<th><center>Jumalah anak</center></th>
+		<th><center>Jumlah anak</center></th>
 		<th><center>Besaran uang</center></th>
 		<th colspan="2">Action</th>
 			

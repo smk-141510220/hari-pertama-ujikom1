@@ -62,7 +62,7 @@ class pegawaiController extends Controller
                          );
 
         $message =array('email.unique' =>'Gunakan Email Lain' ,
-                        'name.required' =>'Wajib Isi',
+                        'name.required' =>'wajib Isi',
                         'email.required' =>'Wajib Isi',
                         'password.unique' =>'wajib isi',
                         'permision.confirmed' =>'Masukan Password Yang Benar',
@@ -100,6 +100,23 @@ class pegawaiController extends Controller
          $pegawai->golongan_id=Input::get('golongan_id');
          $pegawai->user_id=$akun->id;
          $pegawai->save();
+         return redirect('pegawai');
+
+
+         $file = Input::file('foto');
+         $destinationPath = public_path().'/image/';
+         $filename = str_random(6).'_'.$file->getClientOriginalName();
+         $uploadSucces = $file->move($destinationPath,$filename);
+
+         if(Input::hasFile('foto')){
+            $ff = new pegawaiModel;
+            $ff->nip= input::get('nip');
+            $ff->user_id=$user->id;
+            $ff->jabatan_id=Input::get('jabatan_id');
+            $ff->golongan_id=Input::get('golongan_id');
+            $ff->foto = $filename;
+            $ff->save();
+         }
          return redirect('pegawai');
 
     }

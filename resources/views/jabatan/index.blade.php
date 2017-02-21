@@ -1,16 +1,14 @@
-@extends('layouts/app')
+@extends('layouts.app')
+
 @section('content')
 
- 
 
+<center><h1>Data jabatan</h1></center>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-              
-                <div class="panel-body">
-                    <table class="table" border="1">
+<hr>
+<div class="col-md-11 "> 
+<table class="table table-striped table bordered table-hover">
+<tr class="danger">
 
 				<a href="{{url('/jabatan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
 				{{$jabatan->links()}}
@@ -42,18 +40,24 @@
 		</td>
 		<td>
 
-		{!!Form::open(['method'=>'DELETE','route'=>['jabatan.destroy',$jabatans->id]])!!}
-		<input type="submit" class="btn btn-danger" onclick="return confirm('anda yakin akan menghapus data?');"value="Delete"> 
-		{!!Form::close()!!}
-		</td>
-		</tr>
-		
+	<td>
+		 <td >
+                                  <center><a data-toggle="modal" href="#delete{{ $jabatans->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip">Delete</a></center>
+                                  @include('modals.delete', [
+                                    'url' => route('jabatan.destroy', $jabatans->id),
+                                    'model' => $jabatans
+                                  ])
+                            </td>
 		@endforeach
 
 	</tbody>
 </table>
-
-
+</div>
+</center>
 
 
 @endsection
+
+
+
+

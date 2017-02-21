@@ -19,9 +19,9 @@
                             @endif
                     </div>
                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" col-md-7 col-sx-12 name="jabatan_id">
+                        <select class="form-control" col-md-7 col-sx-12 name="jabatans_id">
                             @foreach ($jabatan as $jabatans)
-                            <option value="{{$jabatans->id}}">{{ $jabatans->nama_jabatan}}</option>
+                            <option value="{{$jabatans->id}}">{{ $jabatan->nama_jabatan}}</option>
                             @endforeach
                         </select>
                     </div>

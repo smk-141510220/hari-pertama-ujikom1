@@ -1,31 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div class="col-md-3 col-md-offset-1">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <center>
-               
-
-
-                <div class="panel-body" align="center">
-                    
-                    <a class="btn btn-primary form-control" href="{{url('jabatan')}}">Jabatan</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('golongan')}}">Golongan</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('pegawai')}}">Pegawai</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('kategori_lembur')}}">Kategori Lembur</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('lembur_pegawai')}}">Lembur_Pegawai</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('tunjangan')}}">Tunjangan</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('tunjanganpegawai')}}">Tunjangan Karyawan</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('penggajian')}}">Penggajian Karyawan</a><hr>  
-  
-
-                </div>
-            </center>
-        </div>
-    </div>
-</div>
-
-
 
 
 <div class="container">

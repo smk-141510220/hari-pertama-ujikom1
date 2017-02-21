@@ -66,6 +66,38 @@
                                             Logout
                                         </a>
 
+
+                                         <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            daftar menu
+                                        </a>
+                                        <div class="panel-body" align="center">
+                    
+                    <a class="btn btn-primary form-control" href="{{url('jabatan')}}">Jabatan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('golongan')}}">Golongan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('pegawai')}}">Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('kategori_lembur')}}">Kategori Lembur</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('lembur_pegawai')}}">Lembur_Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjangan')}}">Tunjangan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjanganpegawai')}}">Tunjangan Karyawan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('penggajian')}}">Penggajian Karyawan</a><hr>  
+  
+
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>

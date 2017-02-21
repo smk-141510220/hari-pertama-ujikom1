@@ -4,10 +4,10 @@
 <center><h1>Data golongan</h1></center>
 
 <hr>
-	<div class="col-md-8">
-		<table class="table table-striped table-bordered table-hover">
-			<!-- <table class="table table-default"> -->
-				<tr class="danger">
+<div class="col-md-11 "> 
+<table class="table table-striped table bordered table-hover">
+<tr class="danger">
+
 
 			<a href="{{url('/golongan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
 			{{$golongan->links()}}

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\tunjanganModel;
-use Request;
-use App\jabatanModel;
 use App\golonganModel;
+use App\jabatanModel;
 
-class tunjanganController extends Controller
+
+use Illuminate\Http\Request;
+
+class tunjangancontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,11 @@ class tunjanganController extends Controller
      */
     public function index()
     {
+        //
         $tunjangan=tunjanganModel::all();
         return view('tunjangan.index',compact('tunjangan'));
-        //
+
+
     }
 
     /**
@@ -27,11 +31,10 @@ class tunjanganController extends Controller
      */
     public function create()
     {
-        $jabatan=jabatanModel::all();
-        $golongan=golonganModel::all();
-        $tunjangan=tunjanganModel::all();
-        return view('tunjangan.create',compact('tunjangan','golongan','jabatan'));
         //
+        $golongan=golonganModel::all();
+        $jabatan=jabatan::all();
+        return view('tunjangan.create',compact('golongan','jabatan'));
     }
 
     /**
@@ -42,10 +45,17 @@ class tunjanganController extends Controller
      */
     public function store(Request $request)
     {
-        $tunjangan=Request::all();
-        tunjanganModel::create($tunjangan);
-        return redirect('tunjangan');
         //
+
+        $tunjangan= new tunjangan;
+        $tunjangan->kode_tunjangan=$request->get('kode_tunjangan');
+        $tunjangan->id_jabatan=$request->get('id_jabatan');
+        $tunjangan->id_golongan=$request->get('id_golongan');
+        $tunjangan->status=$request->get('status');
+        $tunjangan->jumlah_anak=$request->get('jumlah_anak');
+        $tunjangan->besaran_uang=$request->get('besaran_uang');
+        $tunjangan->save();
+        return redirect('/tunjangan');
     }
 
     /**
@@ -65,11 +75,13 @@ class tunjanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-      public function edit($id)
+    public function edit($id)
     {
         //
-        $tunjangan=tunjanganModel::all();
-        return view('tunjangan.edit',compact('tunjangan'));
+        $tunjangan=tunjanganModel::find($id);
+        $golongan=golonganModel::all();
+        $jabatan=jabatanModel::all();
+        return view('tunjangan.edit',compact('tunjangan','jabatan','golongan'));
     }
 
     /**
@@ -82,9 +94,9 @@ class tunjanganController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $Update=Request::all();
-        $tunjangan=tunjanganModel::find($id);
-        $tunjangan->update($Update);
+        $tunjanganupdate=Request::all();
+        $tunjangan=tunjanganModel::find($i);
+        $tunjangan->update($tunjanganupdate);
         return redirect('tunjangan');
     }
 
@@ -98,6 +110,6 @@ class tunjanganController extends Controller
     {
         //
         tunjanganModel::find($id)->delete();
-        return redirect('tunjangan');
+        return redirect ('tunjangan');
     }
 }
